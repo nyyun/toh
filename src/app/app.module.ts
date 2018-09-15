@@ -3,14 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import {FormsModule} from '@angular/forms'; //es6 모듈
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent
   ],
-  imports: [
-    BrowserModule
+  imports: [ // angular 모듈
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

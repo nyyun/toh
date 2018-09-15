@@ -1,0 +1,21 @@
+.special {
+  background-color: blue;
+}
+/* CSS였으면 에러 났을 문법 & 부모참조 연산자  angular 의 경우 LESS, SCSS 전처리기가 다 있기 때문에 브라우저가
+인식할 수 있는 언어로 변경해준다.
+*/
+li {
+  .bg-light {
+    background-color: #cccccc !important;
+  }
+  &.selected {
+    div {
+      &.bg-light {
+        background-color: #666666 !important;
+      }
+      &.text-dark {
+        color: white !important;
+      }
+    }
+  }
+}

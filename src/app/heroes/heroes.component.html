@@ -1,3 +1,59 @@
-<p>
-  heroes works!
-</p>
+
+<!--<h2>{{ hero.name }} Details</h2>
+<div><span>id: </span>{{hero.id}}</div>
+<div><span>name: </span>{{hero.name}}</div>-->
+<!--
+
+&lt;!&ndash; 데이터 모델 바인딩 하는 방법 &ndash;&gt;
+<div>
+  <button [disabled]="isSpecial">propery binding button</button>
+  &lt;!&ndash;  true면 버튼을 사용하지 않는다. 속성 바인딩&ndash;&gt;
+</div>
+
+<div>
+  <div [class.special]="isSpecial">class binding button</div>
+  &lt;!&ndash;  클래스가 true 이면 special 클래스가 생성된다. 클래스 바인딩&ndash;&gt;
+</div>
+
+<div>
+  <button [style.color]="isSpecial ? 'red' : 'green'">style binding button</button>
+  &lt;!&ndash;   style 값 처리  스타일 바인딩&ndash;&gt;
+</div>
+<div>
+  <button (click)="onSave($event)">event binding save button</button>
+</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="hero.name" placeholder="name">
+  </label>
+</div>
+-->
+
+<ul>
+  <li *ngFor="let h of heroes" (click)="onSelected(h)">
+    <span>{{h.id}}</span> {{h.name}}
+  </li>
+</ul>
+<div *ngIf="selectedHero">
+<h2>{{ selectedHero.name | uppercase }} Details</h2>
+<div><span>id: </span>{{selectedHero.id}}</div>
+
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </label>
+</div>
+</div>
+<!-- emmet ul> li 누르고 탭 누르면 자동 생성 WebStorm 에서는 자동 내장 되어있음 ㅎㅎㅎ-->
+
+
+
+<h2>My Heroes</h2>
+<ul>
+  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelected(hero)"
+   [class.selected] = "hero == selectedHero">
+    <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span><!-- 왼쪽 라운드 padding: 7px 텍스트 오른쪽 정렬 -->
+    <div class="rounded-right p-2 bg-light text-dark w-50">{{hero.name}}</div><!-- 7px  화면 50% 차지-->
+  </li>
+</ul>
+
