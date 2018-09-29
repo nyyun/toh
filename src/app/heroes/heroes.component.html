@@ -34,16 +34,7 @@
     <span>{{h.id}}</span> {{h.name}}
   </li>
 </ul>
-<div *ngIf="selectedHero">
-<h2>{{ selectedHero.name | uppercase }} Details</h2>
-<div><span>id: </span>{{selectedHero.id}}</div>
 
-<div>
-  <label>name:
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </label>
-</div>
-</div>
 <!-- emmet ul> li 누르고 탭 누르면 자동 생성 WebStorm 에서는 자동 내장 되어있음 ㅎㅎㅎ-->
 
 
@@ -57,3 +48,7 @@
   </li>
 </ul>
 
+<!-- [자식프로퍼티]='부모 프로퍼티' ts에 선언된 것.. 헷갈리지 말자-->
+<app-hero-detail [selectedHero]="selectedHero">
+
+</app-hero-detail>

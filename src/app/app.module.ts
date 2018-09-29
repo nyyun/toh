@@ -3,13 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import {FormsModule} from '@angular/forms'; //es6 모듈
+import {FormsModule} from '@angular/forms';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { VotetakerComponent } from './votetaker/votetaker.component';
+import { VoterComponent } from './voter/voter.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent,
+    VotetakerComponent,
+    VoterComponent
   ],
   imports: [ // angular 모듈
     BrowserModule,
