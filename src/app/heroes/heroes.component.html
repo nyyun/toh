@@ -35,20 +35,19 @@
   </li>
 </ul>
 
+<router-outlet></router-outlet>
 <!-- emmet ul> li 누르고 탭 누르면 자동 생성 WebStorm 에서는 자동 내장 되어있음 ㅎㅎㅎ-->
-
-
-
 <h2>My Heroes</h2>
 <ul>
-  <li class="d-flex m-1" *ngFor="let hero of heroes" (click)="onSelected(hero)"
-   [class.selected] = "hero == selectedHero">
+  <li class="d-flex m-1" *ngFor="let hero of heroes"
+   [class.selected] = "hero == selectedHero"  routerLink="/heroes/{{hero.id}}">
     <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span><!-- 왼쪽 라운드 padding: 7px 텍스트 오른쪽 정렬 -->
     <div class="rounded-right p-2 bg-light text-dark w-50">{{hero.name}}</div><!-- 7px  화면 50% 차지-->
   </li>
 </ul>
 
 <!-- [자식프로퍼티]='부모 프로퍼티' ts에 선언된 것.. 헷갈리지 말자-->
-<app-hero-detail [selectedHero]="selectedHero">
+<!-- <app-hero-detail [selectedHero]="selectedHero">
 
-</app-hero-detail>
+</app-hero-detail>-->
+

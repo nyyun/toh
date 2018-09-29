@@ -17,7 +17,7 @@ export class HeroesComponent implements OnInit {
 
   isSpecial = true;
 
-  heroes = HEROES;
+  heroes: Hero[];
   selectedHero: Hero;
 
   // 생성자로 이미 등록된 hero service 인스턴스를 주입 받는다.
@@ -37,15 +37,19 @@ export class HeroesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.heroService.refresh$.subscribe(data => {
+      console.log(data);
+      this.selectedHero = this.heroes.find(item => item.id === data ? true : false);
+    });
   }
 
   onSave(e: any) { // onSave:function(e:any){} -- es5
-    console.log(e);
+    // console.log(e);
     this.isSpecial = !this.isSpecial;
   }
 
     onSelected(hero: Hero) {
-    console.log(hero);
+    // console.log(hero);
      this.selectedHero = hero;
     }
 }
