@@ -27,7 +27,13 @@ export class HeroesComponent implements OnInit {
     // const heroService = new HeroService();
     // this.heroes = heroService.getHeroes(); // 직접 호출!! 의존성 !!!
    // private을 넣어주면 local 변수로 되기 때문에 this를 붙여줘도 된다.
-    this.heroes = this.heroService.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
+    // this.heroService.getHeroes().subscribe(data => {this.heroes = data; });
+
+    this.heroService.getHeroes()
+      .subscribe(data => {
+        this.heroes = data;
+      });
   }
 
   ngOnInit() {
