@@ -10,6 +10,7 @@ import { VoterComponent } from './voter/voter.component';
 import { HomeComponent } from './home/home.component';
 import { TodoComponent } from './todo/todo.component';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [ // 루트를 정해준다.
   {path: '', component: HomeComponent}, // root url 이면
@@ -33,7 +34,8 @@ const routes: Routes = [ // 루트를 정해준다.
   imports: [ // angular 모듈
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

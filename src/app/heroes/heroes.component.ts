@@ -11,7 +11,7 @@ import {HeroService} from '../hero.service';
 
 export class HeroesComponent implements OnInit {
   hero: Hero = {
-    id: 1,
+    hero_id: 1,
     name: 'Winstorm'
   };
 
@@ -39,7 +39,7 @@ export class HeroesComponent implements OnInit {
   ngOnInit() {
     this.heroService.refresh$.subscribe(data => {
       console.log(data);
-      this.selectedHero = this.heroes.find(item => item.id === data ? true : false);
+      this.selectedHero = this.heroes.find(item => item.hero_id === data ? true : false);
     });
   }
 

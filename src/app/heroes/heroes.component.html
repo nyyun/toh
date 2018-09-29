@@ -1,6 +1,6 @@
 
 <!--<h2>{{ hero.name }} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
+<div><span>hero_id: </span>{{hero.hero_id}}</div>
 <div><span>name: </span>{{hero.name}}</div>-->
 <!--
 
@@ -31,7 +31,7 @@
 
 <ul>
   <li *ngFor="let h of heroes" (click)="onSelected(h)">
-    <span>{{h.id}}</span> {{h.name}}
+    <span>{{h.hero_id}}</span> {{h.name}}
   </li>
 </ul>
 
@@ -40,8 +40,8 @@
 <h2>My Heroes</h2>
 <ul>
   <li class="d-flex m-1" *ngFor="let hero of heroes"
-   [class.selected] = "hero == selectedHero"  routerLink="/heroes/{{hero.id}}">
-    <span class="rounded-left p-2 bg-primary text-light">{{hero.id}}</span><!-- 왼쪽 라운드 padding: 7px 텍스트 오른쪽 정렬 -->
+   [class.selected] = "hero == selectedHero"  routerLink="/heroes/{{hero.hero_id}}">
+    <span class="rounded-left p-2 bg-primary text-light">{{hero.hero_id}}</span><!-- 왼쪽 라운드 padding: 7px 텍스트 오른쪽 정렬 -->
     <div class="rounded-right p-2 bg-light text-dark w-50">{{hero.name}}</div><!-- 7px  화면 50% 차지-->
   </li>
 </ul>
