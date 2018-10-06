@@ -15,7 +15,10 @@ export class HeroService {
   refresh = new Subject<number>(); // publisher: next() 함수로 데이터 발생
   refresh$ = this.refresh.asObservable(); // subscriber: subscribe()로 데이터 수신
 
-  constructor(private http: HttpClient) { }
+  headers = new HttpHeaders(); // headers 부분은 415 에러가 나기 때문에 반드시!! 넣어주어야 합니다.
+  constructor(private http: HttpClient) {
+    this.headers.append('Content-Type', 'application/json');
+  }
 
   getHeroes(): Observable<Hero[]> {
     // /api/heroes 통해서 모델 정보 획득
@@ -36,12 +39,16 @@ export class HeroService {
   }
 
   addTodo(todo: TodoVo): Observable<TodoVo> {
-    const headers = new HttpHeaders(); // headers 부분은 415 에러가 나기 때문에 반드시!! 넣어주어야 합니다.
-    headers.append('Content-Type', 'application/json');
-
     const tempTodo = {...todo};
     delete  tempTodo.isFinished; // boolean은 기본값으로 false로 가기 때문에 이 값을 빼줌
 
-   return this.http.post<TodoVo>(`${environment.HOST}/api/todo`, todo, {headers: headers });
+   return this.http.post<TodoVo>(`${environment.HOST}/api/todo`, todo, {headers: this.headers });
+  }
+
+  modifyTodo(todo: TodoVo): Observable<TodoVo> {
+    const tempTodo = {...todo};
+    delete  tempTodo.isFinished; // boolean은 기본값으로 false로 가기 때문에 이 값을 빼줌
+
+    return this.http.put<TodoVo>(`${environment.HOST}/api/todo`, todo, {headers: this.headers });
   }
 }
