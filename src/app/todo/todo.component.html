@@ -21,15 +21,27 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let todo of todoList">
-    <td>{{todo.isFinished? '완료': '미완료'}}</td>
-    <td>{{todo.todo}}</td>
-    <td>{{todo.created}}</td>
-    <td>{{todo.updated}}</td>
-    <td>
-      <button class="btn btn-success btn-sm">수정</button>
-      <button class="btn btn-danger btn-sm ml-1">삭제</button>
-    </td>
-  </tr>
+  <ng-template ngFor let-todo [ngForOf]="todoList">
+    <tr *ngIf="todo.isEdited">
+      <td>{{todo.isFinished? '완료': '미완료'}}</td>
+      <td>{{todo.todo}}</td>
+      <td>{{todo.created}}</td>
+      <td>{{todo.updated}}</td>
+      <td>
+        <button class="btn btn-success btn-sm">수정</button>
+        <button class="btn btn-danger btn-sm ml-1">삭제</button>
+      </td>
+    </tr>
+    <tr *ngIf="!todo.isEdited">
+      <td>{{todo.isFinished? '완료': '미완료'}}</td>
+      <td>{{todo.todo}}</td>
+      <td>{{todo.created}}</td>
+      <td>{{todo.updated}}</td>
+      <td>
+        <button class="btn btn-success btn-sm">수정</button>
+        <button class="btn btn-danger btn-sm ml-1">삭제</button>
+      </td>
+    </tr>
+  </ng-template>
   </tbody>
 </table>

@@ -4,5 +4,6 @@ export class TodoVo {
   todo: string;
   created: string;
   updated: string;
-
+  // 임의로 추가
+  isEdited:boolean;
 }
