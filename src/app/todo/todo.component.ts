@@ -33,4 +33,12 @@ export class TodoComponent implements OnInit {
       this.newTodo.todo = null;
     });
   }
+  // 수정 템플릿으로 변경
+  save(todo: TodoVo) {
+    todo.isEdited = true;
+  }
+
+  restore(todo: TodoVo) {
+    todo.isEdited = false;
+  }
 }
