@@ -1,13 +1,15 @@
-<div class="row">
+<form #myForm="ngForm" (submit)="addTodo()">
+  <div class="row">
   <div class="col-sm-8">
     <div class="form-group">
-      <input [(ngModel)]="newTodo.todo" class="form-control" placeholder="할일을 입력하세요.">
+      <input [(ngModel)]="newTodo.todo" class="form-control" name="todo" #todo="ngModel" placeholder="할일을 입력하세요." required>
     </div>
   </div>
   <div class="col-sm-4">
-    <button class="btn btn-primary btn-block" (click)="addTodo()">추가</button>
+    <button type="submit" class="btn btn-primary btn-block" (click)="addTodo()"  [disabled]="!myForm.form.valid" > 추가</button>
   </div>
 </div>
+</form>
 <table class="table table-striped">
   <thead>
   <tr>
