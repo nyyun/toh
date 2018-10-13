@@ -41,8 +41,8 @@
     <tr *ngIf="!todo.isEdited" [@flyInOut]="'in'" appHighlight [highlightColor]="'#C8FFFF'" >
       <td >{{todo.isFinished? '완료': '미완료'}}</td>
       <td>{{todo.todo}}</td>
-      <td>{{todo.created}}</td>
-      <td>{{todo.updated}}</td>
+      <td>{{todo.created | mydate }}</td>
+      <td>{{todo.updated | date:'yyyy-mm-dd a HH:mm'}}</td>
       <td>
         <button class="btn btn-success btn-sm" (click)="save(todo)">수정</button>
         <button class="btn btn-danger btn-sm ml-1" (click)="delete(todo, idx)">삭제</button>
@@ -53,6 +53,8 @@
 </table>
 
 
+/*
 {{ 10000}} 원
 {{ 10000 | mydate: '$'}}
 {{ 10000 | mydate: 'yen'}}
+*/
