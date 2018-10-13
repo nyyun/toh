@@ -13,6 +13,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { JqueryComponent } from './jquery/jquery.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HighlightDirective } from './highlight.directive';
 
 const routes: Routes = [ // 루트를 정해준다.
   {path: '', component: HomeComponent}, // root url 이면
@@ -33,7 +34,8 @@ const routes: Routes = [ // 루트를 정해준다.
     VoterComponent,
     HomeComponent,
     TodoComponent,
-    JqueryComponent
+    JqueryComponent,
+    HighlightDirective
   ],
   imports: [ // angular 모듈
     BrowserModule,
